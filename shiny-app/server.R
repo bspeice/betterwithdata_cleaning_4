@@ -9,5 +9,7 @@ shinyServer(function(input, output) {
     emergency2013[, input$show_vars, drop = FALSE]
     
       
+    library(corrplot)
+    pairs(emergency2013[, input$show_vars, drop = FALSE])
   })
 })
