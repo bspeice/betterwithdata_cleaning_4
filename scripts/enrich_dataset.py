@@ -38,7 +38,12 @@ def get_labels(PUFId, varName):
 
 def load_dictionary(dictfile):
     df = pd.read_csv(dictfile)
-    return dict(zip(df.NAME, df.DESCRIPTION))
+
+    dictionary = dict(zip(df.NAME, df.DESCRIPTION))
+    srcs = dictionary.keys()
+    for k in srcs:
+        dictionary[k + '_label'] = dictionary[k] + '_label'
+    return dictionary
 
 
 # hardcoded config of which file corresponds to which year.
@@ -49,11 +54,15 @@ YEAR_FILES = dict([('h{}e.csv'.format(idx), 2013-i) for i, idx in enumerate([160
 
 if __name__ == '__main__':
 
+    # Usage:
+    # $0 --input-file data/emergency\ visits/h94e.csv \
+    #    --output-dir data/emergency\ visits/ \
+    #    --column-dictionary FYCCodebook_2013.csv
+    #
     parser = argparse.ArgumentParser()
     parser.add_argument('--input-file')
     parser.add_argument('--output-dir')
     parser.add_argument('--column-dictionary')
-    parser.add_argument('--category')
     args = parser.parse_args()
 
     infile = os.path.basename(args.input_file)
@@ -73,9 +82,6 @@ if __name__ == '__main__':
 
     if args.column_dictionary:
         dictionary = load_dictionary(args.column_dictionary)
-        srcs = dictionary.keys()
-        for k in srcs:
-            dictionary[k + '_label'] = dictionary[k] + '_label'
 
         raw_data.columns = [dictionary.get(col, col) for col in raw_data.columns]
 
