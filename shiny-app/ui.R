@@ -10,7 +10,7 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       checkboxGroupInput('show_vars', 'Columns in dataset to show:',
-                         names(emergency2013), selected = names(emergency2013))
+                         names(emergency2013), selected = NULL)
     ),
     
     # Show a summary table of the selected variables
