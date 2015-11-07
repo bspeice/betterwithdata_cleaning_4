@@ -18,6 +18,7 @@ shinyUI(fluidPage(
       tabsetPanel(
         id = 'dataset',
         tabPanel('emergency2013', dataTableOutput('mytable1')))
+        tabPanel('emergency2013', plotOutput('myplot')))
     )
   )
 ))
