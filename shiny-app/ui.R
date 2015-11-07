@@ -9,16 +9,14 @@ shinyUI(fluidPage(
   # Sidebar with a slider input for the number of bins
   sidebarLayout(
     sidebarPanel(
-      checkboxGroupInput('show_vars', 'Columns in dataset to show:',
-                         names(emergency2013), selected = NULL)
-    ),
-    
-    # Show a summary table of the selected variables
+      checkboxGroupInput('show_vars', 'Columns in dataset to show:', names(emergency2013), selected = NULL)),
+  # Show a summary table of the selected variables
     mainPanel(
       tabsetPanel(
         id = 'dataset',
-        tabPanel('emergency2013', dataTableOutput('mytable1')))
-        tabPanel('emergency2013', plotOutput('myplot')))
+        tabPanel('emergency2013', dataTableOutput('mytable1')),
+        tabPanel('emergency2013', dataTableOutput('mytable2')),
+        tabPanel('emergency2013', plotOutput('myplot'))))
     )
   )
-))
+)
