@@ -13,9 +13,11 @@ shinyUI(fluidPage(
                          names(emergency2013), selected = names(emergency2013))
     ),
     
-    # Show a plot of the generated distribution
+    # Show a summary table of the selected variables
     mainPanel(
-      plotOutput("distPlot")
+      tabsetPanel(
+        id = 'dataset',
+        tabPanel('emergency2013', dataTableOutput('mytable1')))
     )
   )
 ))

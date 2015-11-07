@@ -4,8 +4,10 @@ library(shiny)
 shinyServer(function(input, output) {
   emergency2013 <- read.csv("./data/emergency2013.csv")
   
-  output$distPlot <- renderPlot({
+  output$mytable1 <- renderDataTable({
+    library(ggplot2)
+    emergency2013[, input$show_vars, drop = FALSE]
     
-    plot(emergency2013$erdatemm, emergency2013$vstctgry)
+      
   })
 })
