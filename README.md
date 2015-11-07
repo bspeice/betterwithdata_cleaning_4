@@ -21,3 +21,15 @@ download_puf(short_puf)
 ```
 
 All PUF files, regardless of what dataset they come from, can be downloaded through this command.
+
+At this stage the `enrich_dataset.py` script can be used to add categorical labels and convert to better variable names.
+
+```
+# Usage:
+enrich_dataset.py --input-file h94e.csv --column-dictionary FYCCodebook_2013.csv
+
+```
+The script will extract information about categorical variables in the input file using import.io API to parse codebook tables from the MEPS site and add columns with labels, rather than numeric IDs.
+
+The column dictionary is one time construction from the codebooks on the MEPS website, mapping 8-character variable names
+to more descriptive ones.
