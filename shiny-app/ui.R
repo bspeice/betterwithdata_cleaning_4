@@ -9,11 +9,8 @@ shinyUI(fluidPage(
   # Sidebar with a slider input for the number of bins
   sidebarLayout(
     sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
+      checkboxGroupInput('show_vars', 'Columns in dataset to show:',
+                         names(emergency2013), selected = names(emergency2013))
     ),
     
     # Show a plot of the generated distribution
