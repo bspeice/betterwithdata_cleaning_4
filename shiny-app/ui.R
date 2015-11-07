@@ -5,11 +5,13 @@ shinyUI(fluidPage(
   
   # Application title
   titlePanel("Hello Shiny!"),
-  
+
   # Sidebar with a slider input for the number of bins
   sidebarLayout(
     sidebarPanel(
-      checkboxGroupInput('show_vars', 'Columns in dataset to show:', names(emergency2013), selected = NULL)),
+      uiOutput('fileSelect'),
+      uiOutput('columnList')
+    ),
   # Show a summary table of the selected variables
     mainPanel(
       tabsetPanel(
