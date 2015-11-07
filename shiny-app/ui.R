@@ -10,18 +10,16 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       checkboxGroupInput('show_vars', 'Columns in dataset to show:',
-                         names(emergency2013), selected = null)
-    ),
+                         names(emergency2013), selected = NULL)
+    )
+  ),
     
-    # Show a summary table of the selected variables
-    
-    
+  # Show a summary table of the selected variables
     mainPanel(
       tabsetPanel(
         id = 'dataset',
         tabPanel('emergency2013', dataTableOutput('mytable1')),
-        tabPanel('scatterplot', plotOutput('distPlot'))
-      )
+        tabPanel('emergency2013', plotOutput('myplot')))
     )
   )
-))
+)
