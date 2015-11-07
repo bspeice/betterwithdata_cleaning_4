@@ -21,5 +21,8 @@ shinyServer(function(input, output) {
     library(ggplot2)
     library(corrplot)
     pairs(emergency2013[, input$show_vars, drop = FALSE])
+
+    emergency2013[, input$show_vars, drop = FALSE]
+
   })
 })
