@@ -4,7 +4,7 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Hello Shiny!"),
+  titlePanel("MEPS Survey Data Viewing Tool"),
 
   # Sidebar with a slider input for the number of bins
   sidebarLayout(
