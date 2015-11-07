@@ -14,9 +14,9 @@ shinyUI(fluidPage(
     mainPanel(
       tabsetPanel(
         id = 'dataset',
-        tabPanel('emergency2013', dataTableOutput('mytable1')),
-        tabPanel('emergency2013', dataTableOutput('mytable2')),
-        tabPanel('emergency2013', plotOutput('myplot')))
+        tabPanel('Data Table', dataTableOutput('mytable1')),
+        tabPanel('Summary Statistics', dataTableOutput('mytable2')),
+        tabPanel('Scatter Plots', plotOutput('myplot')))
     )
   )
 )
